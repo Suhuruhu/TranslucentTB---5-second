@@ -1384,7 +1384,7 @@ void TaskbarAttributeWorker::ResetState(bool manual)
 				if (m_LastExplorerPid != 0 && pid != m_LastExplorerPid)
 				{
 					const auto now = std::chrono::steady_clock::now();
-					if (now < m_LastExplorerRestart + std::chrono::seconds(30)) [[unlikely]]
+					if (now < m_LastExplorerRestart + std::chrono::seconds(5)) [[unlikely]]
 					{
 						Localization::ShowLocalizedMessageBox(IDS_EXPLORER_RESTARTED_TOO_MUCH, MB_OK | MB_ICONWARNING | MB_SETFOREGROUND, hinstance()).join();
 						ExitProcess(1);
